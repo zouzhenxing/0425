@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			var word = new Worker("js/w2.js");
+			function count() {
+				word.postMessage(document.getElementById("inp").value);
+				word.onmessage = function( data ) {
+					document.getElementById("result").innerHTML = "结果是：" + data.data;
+				}
+			}
+		</script>
+	</head>
+	<body>
+		请输入位数:<input type="" name="" id="inp" value="" />
+		<button onclick="count()">计算</button>
+		<span id="result">结果是：</span>
+	</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript">
+			var work = new Worker("js/w1.js");//创建一个新的线程
+			work.postMessage("买个快餐");
+			console.log("主线程输出");
+		</script>
+	</head>
+	<body>
+		<input type="" name="" id="" value="" />
+	</body>
+</html>

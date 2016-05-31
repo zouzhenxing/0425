@@ -1,0 +1,12 @@
+.clock {
+	width: 500px;
+	height: 500px;
+	position: relative;
+	float: left;
+}
+.clock .hh,.mi,.ss {
+	position: absolute;
+	top: 245px;
+	left: 250px;
+	transform-origin: left;
+}
