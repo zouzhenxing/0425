@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			"use strict"; //严格模式
+			class Person {
+				constructor(name,age,sex) {
+					this.name = name;
+					this.age = age;
+					this.sex = sex;
+				}
+				
+				eat() {
+					alert(this.name + "吃饭");
+				}
+				
+				sleep() {
+					alert(this.name + "睡觉");
+				}
+			}
+			
+			var p = new Person("小样");
+			p.eat();
+			p.sleep();
+		
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

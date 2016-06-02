@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/time.css"/>
+		<script type="text/javascript">
+			window.onload = function() {
+				var btn = document.getElementById("btn");
+				var d1 = document.getElementById("d1");
+				
+				btn.onclick = function() {
+					d1.appendChild(btn.cloneNode());
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="d1" draggable="true">
+			<input type="button" name="" id="btn" value="复制" />
+		</div>
+	</body>
+</html>

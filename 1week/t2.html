@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			var person = function( sex ){
+				this.sex = sex;
+			};
+			
+			person.prototype._name = person.prototype._sex = 0;
+			Object.defineProperties(person.prototype,{
+				"name" : {
+					get : function() {
+						
+					},
+					set : function() {
+						
+					}
+				},
+				"sex" : {
+					get : function() {
+						
+					},
+					set : function() {
+						
+					}
+				}
+			});
+			
+			person.prototype.eat = function() {
+				alert(this.name + "吃饭");
+			}
+			
+			var p = new person("女");
+			alert(p.sex);
+			p.sex = "男";
+			alert(p.sex);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

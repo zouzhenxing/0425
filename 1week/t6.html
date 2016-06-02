@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>myjq</title>
+		<link rel="stylesheet" type="text/css" href="css/t1.css"/>
+		<script src="js/t1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+//			$.extend({
+//				say : function() {
+//					console.log("factory say");
+//				}
+//			});
+//			$.fn.extend({
+//				say : function() {
+//					console.log("myjq say");
+//				}
+//			})
+			$.say = function() {
+				
+			}
+			$.fn.say = function () {
+				
+			}
+			
+			window.onload = function() {
+				$("btn").click(function(){
+					if( this.innerHTML == "隐藏" ) {
+						$("d1").hide();
+						$(this).val("显示");
+					} else {
+						$("d1").show();
+						$(this).val("隐藏");
+					}
+				});
+			}
+		</script>
+	</head>
+	<body>
+		<button id="btn">隐藏</button>
+		<div id="d1"></div>
+	</body>
+</html>
