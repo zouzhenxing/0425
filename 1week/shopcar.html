@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>购物车</title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/animate.css"/>
+		<script src="js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.easing.1.3.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.textOverflow {
+				white-space: nowrap; /*一行*/
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+			.thumbnail:hover {
+				border-color: yellow;
+			}
+			.badgeAdd {
+				position: absolute;
+				top: 30%;
+				left: 80%;
+				color: red;
+				font-size: 30px;
+				opacity: 1;
+				z-index: 99;
+			}
+			.badgeReduce {
+				position: absolute;
+				top: 30%;
+				left: 80%;
+				color: green;
+				font-size: 30px;
+				opacity: 1;
+				z-index: 99;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-8 col-sm-12">
+					<div class="panel panel-primary">
+						<div class="panel-heading">选择商品</div>
+						<div class="panel-body">
+							<div class="row">
+							  <div class="col-sm-6 col-md-4">
+							    <div class="thumbnail" draggable="true" title="法国德菲丝松露精品巧克力500g/盒">
+							      <img src="img/1.jpg" alt="法国德菲丝松露精品巧克力500g/盒">
+							      <div class="caption">
+							        <h4 class="textOverflow">法国德菲丝松露精品巧克力500g/盒</h4>
+							        <p>￥108.0</p>
+							        <p><a href="#" class="btn btn-primary btn-lg btn-block" role="button">加入购物车</a></p>
+							      </div>
+							    </div>
+							  </div>
+							  
+							  <div class="col-sm-6 col-md-4">
+							    <div class="thumbnail" draggable="true" title="乐扣普通型保鲜盒圣诞7件套">
+							      <img src="img/2.jpg" alt="乐扣普通型保鲜盒圣诞7件套">
+							      <div class="caption">
+							        <h4 class="textOverflow">乐扣普通型保鲜盒圣诞7件套</h4>
+							        <p>￥69.9</p>
+							        <p><a href="#" class="btn btn-primary btn-lg btn-block" role="button">加入购物车</a></p>
+							      </div>
+							    </div>
+							  </div>
+							  
+							  <div class="col-sm-6 col-md-4">
+							    <div class="thumbnail" draggable="true" title="欧珀莱均衡保湿四件套">
+							      <img src="img/3.jpg" alt="欧珀莱均衡保湿四件套">
+							      <div class="caption">
+							        <h4 class="textOverflow">欧珀莱均衡保湿四件套</h4>
+							        <p>￥279.0</p>
+							        <p><a href="#" class="btn btn-primary btn-lg btn-block" role="button">加入购物车</a></p>
+							      </div>
+							    </div>
+							  </div>
+							  
+							  <div class="col-sm-6 col-md-4">
+							    <div class="thumbnail" draggable="true" title="联想笔记本电脑 高速独立显存">
+							      <img src="img/4.jpg" alt="联想笔记本电脑 高速独立显存">
+							      <div class="caption">
+							        <h4 class="textOverflow">联想笔记本电脑 高速独立显存</h4>
+							        <p>￥4199.0</p>
+							        <p><a href="#" class="btn btn-primary btn-lg btn-block" role="button">加入购物车</a></p>
+							      </div>
+							    </div>
+							  </div>
+							  
+							  <div class="col-sm-6 col-md-4">
+							    <div class="thumbnail" draggable="true" title="法姿韩版显瘦彩边时尚牛仔铅笔裤">
+							      <img src="img/5.jpg" alt="法姿韩版显瘦彩边时尚牛仔铅笔裤">
+							      <div class="caption">
+							        <h4 class="textOverflow">法姿韩版显瘦彩边时尚牛仔铅笔裤</h4>
+							        <p>￥49.9</p>
+							        <p><a href="#" class="btn btn-primary btn-lg btn-block" role="button">加入购物车</a></p>
+							      </div>
+							    </div>
+							  </div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-12">
+					<div class="panel panel-primary shopcar">
+						<div class="panel-heading">购物车</div>
+						<div class="panel-body">
+							<ul class="list-group"></ul>
+							<span class="btn btn-default glyphicon glyphicon-trash"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			$(function(){
+				$(".thumbnail .btn").click(function() {
+					addPro();
+				});
+				
+//				var thumbnails = $(".thumbnail").get();
+//				thumbnails.map(function( value ){
+//					value.ondragstart = function(){
+//						console.log("开始拖");
+//					}
+//				});
+				$(".shopcar").get(0).ondrop = function() {
+					addPro();
+				}
+				$(".shopcar").get(0).ondragover = function(e) {
+					e.preventDefault();
+				}
+			})
+			
+			function addPro() {
+				var item = $('<li class="list-group-item animated">' +
+								'<span class="badge">1</span>' + 
+								'<h4 class="list-group-item-heading">法国德菲丝松露精品巧克力500g/盒</h4>' + 
+								'<p class="list-group-item-text">' + 
+									'<input type="checkbox" name="" id="" value="" />&nbsp;' + 
+									'<img src="img/1.jpg" style="height: 50px;"/>&nbsp;' +
+									'<span>￥108.0</span>&nbsp;' + 
+									'<span class="btn btn-default add">+</span>&nbsp;' + 
+									'<span class="btn btn-default reduce">-</span>&nbsp;' +
+									'<span class="btn btn-default glyphicon glyphicon-trash"></span>' +
+								'</p>' +
+							'</li>');
+				$(".shopcar .list-group").prepend(item);
+				item.addClass("zoomIn");
+				rebind();
+			}
+			
+			function rebind() {
+				$(".list-group-item .add").unbind().click(function(){
+					$(this).parents(".list-group-item").append("<p class='badgeAdd'>+1</p>")
+						   .find(".badgeAdd").animate({top:"-50px",opacity:0},500,function(){
+						       $(this).remove();
+						   });
+				});
+				
+				$(".list-group-item .reduce").unbind().click(function(){
+					$(this).parents(".list-group-item").append("<p class='badgeReduce'>-1</p>")
+						   .find(".badgeReduce").animate({top:"+100px",opacity:0},500,function(){
+						       $(this).remove();
+						   });
+				});
+				
+				$(".list-group-item .glyphicon-trash").unbind().click(function(){
+					$(this).parents(".list-group-item").queue('out',function(){
+						$(this).removeClass("zoomIn").addClass("zoomOut");
+					}).delay(500,'out').queue("out",function(){
+			       		$(this).remove();
+			        }).dequeue("out").dequeue("out");
+//				   var item = $(this).parents(".list-group-item");
+//				   item.removeClass("zoomIn").addClass("zoomOut");
+//				   setTimeout(function(){
+//				   		item.remove();
+//				   },500);
+				});
+			}
+		</script>
+	</body>
+</html>

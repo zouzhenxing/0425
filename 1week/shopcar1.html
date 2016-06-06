@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/animate.css"/>
+		<link rel="stylesheet" type="text/css" href="css/shopcar.css"/>
+		<script src="js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-8 col-sm-12">
+					<div class="panel panel-primary">
+						<div class="panel-heading">选择商品</div>
+						<div class="panel-body">
+							<div class="row">
+							  	<div class="col-sm-6 col-md-4">
+								    <div class="thumbnail" draggable="true" title="法国德菲丝松露精品巧克力500g/盒" data-obj='{"id":"1","name":"法国德菲丝松露精品巧克力500g/盒","price":"108.00","img":"img/1.jpg"}'>
+								      <img src="img/1.jpg">
+								      <div class="caption">
+								        <h4>法国德菲丝松露精品巧克力500g/盒</h4>
+								        <p><font class="money">&yen;</font>108.00</p>
+								        <p><a href="#" class="btn btn-success btn-block" role="button">加入购物车</a></p>
+								      </div>
+								    </div>
+							  	</div>
+							  	<div class="col-sm-6 col-md-4">
+								    <div class="thumbnail" draggable="true" title="乐扣普通型保鲜盒圣诞7件套" data-obj='{"id":"2","name":"乐扣普通型保鲜盒圣诞7件套","price":"69.9","img":"img/2.jpg"}'>
+								      <img src="img/2.jpg" alt="乐扣普通型保鲜盒圣诞7件套">
+								      <div class="caption">
+								        <h4 class="textOverflow">乐扣普通型保鲜盒圣诞7件套</h4>
+								        <p><font class="money">&yen;</font>69.9</p>
+								        <p><a href="#" class="btn btn-success btn-block" role="button">加入购物车</a></p>
+								      </div>
+								    </div>
+								</div>
+							  
+							  	<div class="col-sm-6 col-md-4">
+								    <div class="thumbnail" draggable="true" title="欧珀莱均衡保湿四件套" data-obj='{"id":"3","name":"欧珀莱均衡保湿四件套","price":"279.0","img":"img/3.jpg"}'>
+								      <img src="img/3.jpg" alt="欧珀莱均衡保湿四件套">
+								      <div class="caption">
+								        <h4 class="textOverflow">欧珀莱均衡保湿四件套</h4>
+								        <p><font class="money">&yen;</font>279.0</p>
+								        <p><a href="#" class="btn btn-success btn-block" role="button">加入购物车</a></p>
+								      </div>
+								    </div>
+							  	</div>
+							  
+							  	<div class="col-sm-6 col-md-4">
+								    <div class="thumbnail" draggable="true" title="联想笔记本电脑 高速独立显存" data-obj='{"id":"4","name":"联想笔记本电脑 高速独立显存","price":"4199.0","img":"img/4.jpg"}'>
+								      <img src="img/4.jpg" alt="联想笔记本电脑 高速独立显存">
+								      <div class="caption">
+								        <h4 class="textOverflow">联想笔记本电脑 高速独立显存</h4>
+								        <p><font class="money">&yen;</font>4199.0</p>
+								        <p><a href="#" class="btn btn-success btn-block" role="button">加入购物车</a></p>
+								      </div>
+								    </div>
+							  	</div>
+							  
+							  	<div class="col-sm-6 col-md-4">
+								    <div class="thumbnail" draggable="true" title="法姿韩版显瘦彩边时尚牛仔铅笔裤" data-obj='{"id":"5","name":"法姿韩版显瘦彩边时尚牛仔铅笔裤","price":"49.9","img":"img/5.jpg"}'>
+								      <img src="img/5.jpg" alt="法姿韩版显瘦彩边时尚牛仔铅笔裤">
+								      <div class="caption">
+								        <h4 class="textOverflow">法姿韩版显瘦彩边时尚牛仔铅笔裤</h4>
+								        <p><font class="money">&yen;</font>49.9</p>
+								        <p><a href="#" class="btn btn-success btn-block" role="button">加入购物车</a></p>
+								      </div>
+								    </div>
+							  	</div>
+							  
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-12">
+					<div class="panel panel-primary shopcar">
+						<div class="panel-heading">购物车</div>
+						<div class="panel-body">
+							<ul class="list-group"></ul>
+							
+							<span class="btn btn-default glyphicon glyphicon-trash removeAll"></span>
+							<span class="money totalprice"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="js/shopcaroop.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				var sc = new shopcar( $(".shopcar") );
+				$(".thumbnail .btn-success").click(function(){
+					sc.add( $(this).parents(".thumbnail").data("obj") );
+				});
+				$(".thumbnail").get().map(function( obj ){
+					obj.ondragstart = function( event ) {
+						event.dataTransfer.setData("obj",JSON.stringify($(event.target).data("obj")));
+					}
+				});
+			})
+		</script>
+	</body>
+</html>

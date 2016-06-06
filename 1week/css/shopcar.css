@@ -1,0 +1,33 @@
+.thumbnail h4 {
+	white-space: nowrap; /*强制不换行*/
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.money {
+	font-family:Arial;
+	padding: 5px;
+	color: red;
+}
+
+.list-group-item-text img {
+	width: 50px;
+}
+
+.addMove {
+	position: absolute;
+	top: 30%;
+	left: 80%;
+	color: red;
+	font-size: 28px;
+	z-index: 99;
+}
+
+.reduceMove {
+	position: absolute;
+	bottom: 20%;
+	left: 80%;
+	color: green;
+	font-size: 28px;
+	z-index: 99;
+}
