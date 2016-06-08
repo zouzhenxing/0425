@@ -1,7 +1,9 @@
-body,ul {
+body,ul,p,h3,h4 {
 	margin: 0px;
 	padding: 0px;
 }
+
+/*header css*/
 header{
 	position: fixed;
 	top: 0px;
@@ -27,6 +29,7 @@ header ul li:nth-child(2) {
 	width: 60%;
 }
 
+/*footer style*/
 footer {
 	position: fixed;
 	bottom: 0px;
@@ -40,9 +43,6 @@ footer ul {
 footer ul img {
 	width: 20px;
 }
-footer ul p {
-	margin: 0px;
-}
 footer ul li {
 	width: 20%;
 	text-align: center;
@@ -55,6 +55,8 @@ footer ul li {
 footer .current {
 	background-color: #056fa1;
 }
+
+/*content style*/
 .content {
 	position: fixed;
 	top: 50px;
@@ -67,4 +69,82 @@ footer .current {
 }
 .content .banner {
 	width: 100%;
+}
+
+/*网格*/
+.gird ul{
+	list-style: none;
+}
+.gird ul li {
+	float: left;
+	width: 25%;
+	padding : 5px 0px;
+	text-align: center;
+	font-size: 14px;
+	font-family: "宋体";
+}
+.gird ul li img {
+	width: 50%;
+}
+
+/*列表*/
+.list {
+	background-color: #eeeeee;
+}
+.list .listTitle {
+	width: 100%;
+	border-left: 10px solid #6fc2f6;
+	font-size: 20px;
+	height: 50px;
+	line-height: 50px;
+	color:#6fc2f6;
+	padding-left: 5px;
+}
+
+.list .listCells {
+	
+}
+
+.list .listCell {
+	display: flex;
+	display: -webkit-flex;
+	justify-content : center;
+	position: relative;
+	padding: 5px 10px;
+	margin-top: 5px;	
+	background-color: white;
+	box-shadow: 0px 1px #ccc;
+	text-decoration: none;
+}
+.list .listCellHead {
+	flex: 0 0 30%;
+}
+.list .listCellHead img{
+	width: 100%;
+	display: block;
+}
+
+.list .listCellBody {
+	flex: 1 1 auto;
+	padding: 0px 10px;
+	color: #323335;
+	text-align: justify;
+}
+.list .listCellBody .head {
+}
+.list .listCellBody .body {
+	font-size: 12px;
+	margin: 4px 0px;
+}
+.list .listCellBody .footer {
+	font-size: 12px;
+	color: #cacccb;
+	position: relative;
+}
+.list .listCellBody .footer span {
+	display: inline-block;
+	margin-left: 30%;
+}
+.list .listCellFooter {
+	flex: 0 1 auto;
 }
