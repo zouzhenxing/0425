@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app" class="contanier">
+        <component 
+        :is="isshow" 
+        :name="name" 
+        class="animated"
+        transition="bounceleft"
+        transition-mode="out-in"
+        keep-alive>
+            <home></home>
+            <goods></goods>
+            <order></order>
+            <me></me>
+        </component>
+        <navepay @change="change"></navepay>
+    </div>
+    <script src="dist/build.js"></script>
+</body>
+</html>

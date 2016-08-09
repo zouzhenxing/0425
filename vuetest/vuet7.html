@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/epay.css">
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div id="app" class="contanier">
+        <component 
+        :is="isshow" 
+        :name="name" 
+        class="animated"
+        transition="bounceleft"
+        transition-mode="out-in"
+        keep-alive>
+            <home></home>
+            <goods></goods>
+            <order></order>
+            <me></me>
+        </component>
+        <navepay @change="change"></navepay>
+    </div>
+
+    <template id="epayconent">
+        <section>
+            {{ name }}
+        </section>
+    </template>
+    <template id="navepay">
+        <nav>
+            <ul>
+                <li>
+                    <a @click="change('home')" href="javascript:;">
+                        <img src="img/17.png" alt="">
+                        <p>主页</p>
+                    </a>
+                </li>
+                <li>
+                    <a @click="change('goods')" href="javascript:;">
+                        <img src="img/18.png" alt="">
+                        <p>商品</p>
+                    </a>
+                </li>
+                <li>
+                    <a @click="change('order')" href="javascript:;">
+                        <img src="img/19.png" alt="">
+                        <p>订单</p>
+                    </a>
+                </li>
+                <li>
+                    <a @click="change('me')" href="javascript:;">
+                        <img src="img/20.png" alt="">
+                        <p>我的</p>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </template>
+    <script>
+        Vue.transition('bounceleft', {
+            enterClass: 'bounceInRight',
+            leaveClass: 'bounceOutLeft',
+            beforeLeave : function( el ) {
+                vm.istrans = true;
+            },
+            afterEnter : function() {
+                vm.istrans = false;
+            }
+        });
+
+        var navepay = Vue.extend({
+            template : '#navepay',
+            methods : {
+                change : function( msg ) {
+                    this.$dispatch('change',msg);
+                }
+            }
+        });
+
+        var epayconent = Vue.extend({
+            template : '#epayconent',
+            props : {
+                name : {
+                    type : String
+                }
+            }
+        });
+
+        var vm = new Vue({
+            el : "#app",
+            components : {
+                'home' : epayconent,
+                'goods': epayconent,
+                'order': epayconent,
+                'me' : epayconent,
+                'navepay' : navepay,
+            },
+            data : {
+                isshow : 'home',
+                istrans : false
+            },
+            computed : {
+                name : function() {
+                    switch(this.isshow) {
+                        case 'home': return "主页"
+                        case 'goods': return "商品"
+                        case 'order': return "订单"
+                        case 'me': return "我的"
+                    }
+                }
+            },
+            methods : {
+                change : function( msg ) {
+                    if( !this.istrans ) {
+                        this.isshow = msg;    
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

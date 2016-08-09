@@ -1,0 +1,10 @@
+{
+    "success" : {"success":true},
+    "login_err" : {"success":false,"msg":"用户名或密码错误!"},
+    "admin_err" : {"success":false,"msg":"增加/修改会员失败，请与管理员联系!"},
+    "deladmin_err" : {"success":false,"msg":"删除会员失败，请与管理员联系!"},
+    "type_err" : {"success":false,"msg":"增加/修改类型失败，请与管理员联系!"},
+    "goods_err" : {"success":false,"msg":"增加/修改商品失败，请与管理员联系!"},
+    "upfile_er" : {"success":false,"msg":"文件上传失败，请与管理员联系!"},
+    "news_err" : {"success":false,"msg":"增加/修改新闻失败，请与管理员联系!"}
+}

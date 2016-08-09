@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <hello msg="abc"></hello>
+        <hello msg="bcd"></hello>
+        <hello msg="123"></hello>
+    </div>
+    <script>
+        var hello = Vue.extend({
+            // data : function() {
+            //     return {msg : 'Hello World'}
+            // },
+            props : ['msg'],
+            // data : {
+            //     msg : "hello world"
+            // },
+            template : '<div>{{msg}}</div><input type="txt" v-model="msg"/>'
+        });
+        Vue.component("hello",hello);
+
+        var vm = new Vue({
+            el : "#app"
+        });
+    </script>
+</body>
+</html>

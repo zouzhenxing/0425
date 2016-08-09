@@ -1,0 +1,29 @@
+<form role="form" class="form-horizontal">
+    <input type="hidden" id="aid" value="<%= admin ? admin.id : '' %>"/>
+    <div class="form-group">
+        <label class="col-md-2 control-label">用户名:</label>
+        <div class="col-md-10">
+        <input type="text" value="<%= admin ? admin.name : '' %>"  required="true" placeholder="xxx@yuanku.com" id="username" class="form-control" name="username">
+        <span></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-2 control-label">密码:</label>
+        <div class="col-md-10">
+        <input type="password" value="<%= admin ? admin.pwd : '' %>" required="true" placeholder="pwd" id="password" class="form-control" name="password">
+        <span></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-2 control-label">确认密码:</label>
+        <div class="col-md-10">
+        <input type="password" value="<%= admin ? admin.pwd : ''%>" required="true" placeholder="repwd" id="repwd" class="form-control" name="repwd">
+        <span></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+        <button class="btn btn-info" type="submit">增加</button>
+        </div>
+    </div>
+</form>

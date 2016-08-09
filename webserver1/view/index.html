@@ -5,6 +5,10 @@
     <title>首页</title>
 </head>
 <body>
-   {{content}}
+    <ul>
+    <% for(var i = 0;i < list.length;i++) { %>
+        <li><%= list[i].path %>&nbsp;&nbsp;&nbsp;<%= list[i].flag == 0 ? '文件夹' : '文件' %></li>
+    <% } %>
+    </ul>
 </body>
 </html>

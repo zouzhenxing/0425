@@ -9,6 +9,8 @@
   "author": "zouzx",
   "license": "ISC",
   "dependencies": {
+    "bluebird": "^3.4.0",
+    "co": "^4.6.0",
     "eventproxy": "^0.3.4"
   }
 }

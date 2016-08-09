@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="stu in students">
+                {{ stu.name }}
+                <button v-on:click="removeStudent($index)">X</button>
+            </li>
+        </ul>
+        <p>
+            <input type="text" v-model="name">
+            <button v-on:click="addstudent()">增加学生</button>
+        </p>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el : "#app",
+            data : {
+                students : [
+                    {name:"俊仪"},
+                    {name:"畅容"},
+                    {name:"海影"}
+                ],
+                name : ''
+            },
+            methods : {
+                addstudent : function() {
+                    this.students.push({name:this.name});
+                    this.name = '';
+                },
+                removeStudent : function( i ) {
+                    this.students.splice(i,1);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

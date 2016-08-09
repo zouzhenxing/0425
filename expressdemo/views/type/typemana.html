@@ -1,0 +1,30 @@
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>类型名称</th>
+            <th>上级分类</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+    <% types.map(function( type ) {%>
+        <tr>
+            <td>
+                <input type="checkbox" name="ids" value="<%=type.id %>"/>
+            </td>
+            <td><%=type.typename %></td>
+            <td><%=type.pid %></td>
+            <td>
+                <a href="" class="glyphicon glyphicon-trash"></a>
+                <a href="#/goAddType/<%=type.id%>" class="glyphicon glyphicon-edit"></a>
+            </td>
+        </tr>
+    <% }) %>
+    </tbody>
+</table>
+
+<div class="btn-group">
+    <a href="javascript:;" id="delAll" type="button" class="btn btn-success"><i class="glyphicon glyphicon-trash"></i></a>
+    <a href="#/goAddType/-1" type="button" class="btn btn-success"><i class="glyphicon glyphicon-plus"></i></a>
+</div>

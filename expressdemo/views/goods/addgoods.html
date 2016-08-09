@@ -1,0 +1,52 @@
+<form role="form" class="form-horizontal" id="addgoods">
+    <div class="form-group">
+        <label class="col-md-2 control-label">商品名称:</label>
+        <div class="col-md-10">
+        <input type="text" required="true" placeholder="商品名称" id="gname" class="form-control" name="gname">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-2 control-label">商品价格:</label>
+        <div class="col-md-10">
+            <div class="input-group">
+                <span class="input-group-addon">$</span>
+                <input type="number" class="form-control" required="true" placeholder="商品价格" id="price" name="price" />
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-2 control-label">商品图片:</label>
+        <div class="col-md-10">
+            <input type="file" class="form-control" id="img" required="true">
+            <img src="" alt="" id="preshow" style="width:50px;"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-2 control-label">库存:</label>
+        <div class="col-md-10">
+            <input type="number" class="form-control" required="true" placeholder="库存" id="strock" name="strock" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-2 control-label">类型:</label>
+        <div class="col-md-10">
+            <select name="selecter_basic" class="form-control" id="type">
+                <% types.map(function(type){ %>
+                    <option value="<%=type.id%>"><%=type.typename%></option>
+                <% }) %>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-2 control-label">描述:</label>
+        <div class="col-md-10">
+            <textarea id="info" rows="3" class="form-control"></textarea>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+        <button class="btn btn-info" type="submit">增加</button>
+        </div>
+    </div>
+</form>

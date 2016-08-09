@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+    <style type="text/css">
+        .b1 {
+            background-color: red;
+            width: 100px;
+            height: 100px;
+        }
+
+        .b2 {
+            background-color: green;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div :class="classes" @click="change()"></div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el : "#app",
+            data : {
+                classes : {
+                    b1 : true,
+                    b2 : false
+                }
+            },
+            methods : {
+                change : function() {
+                    this.classes.b1 = !this.classes.b1;
+                    this.classes.b2 = !this.classes.b2;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

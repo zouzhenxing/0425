@@ -1,0 +1,48 @@
+html,body,ul,p {
+    margin: 0px;
+    padding: 0px;
+    font-size: 12px;
+}
+
+.contanier {
+    display: flex;
+    display: -webkit-flex;
+    width: 100%;
+    height: 100vh;
+    flex-flow: column nowrap;
+}
+
+.contanier section {
+    flex: 1 1 auto;
+    background-color: aquamarine;
+}
+
+.contanier nav {
+    flex: 0 0 50px;
+    border-top: 1px solid green;
+}
+
+.contanier > nav > ul {
+    list-style: none;
+    display: flex;
+    flex-flow: row nowrap;
+}
+.contanier > nav > ul > li {
+    flex: 0 0 25%;
+}
+.contanier > nav > ul > li > a {
+    display: block;
+    padding: 5px;
+    text-decoration: none;
+    text-align: center;
+}
+.contanier > nav > ul > li > a > img {
+    width: 20px;
+}
+.contanier > nav > ul > li > a > p {
+    line-height: 20px;
+}
+
+.active {
+    color: green;
+}

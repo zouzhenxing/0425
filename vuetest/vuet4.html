@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>epay</title>
+    <link rel="stylesheet" href="css/epay.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <script src="js/vue.js"></script>
+    <script src="js/hammer.min.js"></script>
+    <script src="js/vue-touch.js"></script>
+</head>
+<body>
+    <div class="contanier" id="app">
+        <section v-show="status.home" 
+            v-touch:swipeleft="changeLeft('goods')" 
+            class="animated" 
+            :transition="trans">主页</section>
+        <section v-show="status.goods" 
+            v-touch:swipeleft="changeLeft('order')"
+            v-touch:swiperight="changeRight('home')"   
+            class="animated" 
+            :transition="trans">商品页</section>
+        <section v-show="status.order" 
+            v-touch:swipeleft="changeLeft('me')"
+            v-touch:swiperight="changeRight('goods')"  
+            class="animated" 
+            :transition="trans">订单</section>
+        <section v-show="status.me" class="animated" 
+            v-touch:swiperight="changeRight('order')" 
+       	    :transition="trans">我的</section>
+        <nav>
+            <ul>
+                <li>
+                    <a @click="change('home')" href="javascript:;" :class="{'active':status.home}">
+                        <img src="img/17.png" alt="">
+                        <p>主页</p>
+                    </a>
+                </li>
+                <li>
+                    <a @click="change('goods')" href="javascript:;" :class="{'active':status.goods}">
+                        <img src="img/18.png" alt="">
+                        <p>商品</p>
+                    </a>
+                </li>
+                <li>
+                    <a @click="change('order')" href="javascript:;" :class="{'active':status.order}">
+                        <img src="img/19.png" alt="">
+                        <p>订单</p>
+                    </a>
+                </li>
+                <li>
+                    <a @click="change('me')" href="javascript:;" :class="{'active':status.me}">
+                        <img src="img/20.png" alt="">
+                        <p>我的</p>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <script>
+        Vue.transition('bounceleft', {
+            enterClass: 'bounceInLeft',
+            leaveClass: 'bounceOutRight'
+        });
+        Vue.transition('bounceright', {
+            enterClass: 'bounceInRight',
+            leaveClass: 'bounceOutLeft'
+        });
+
+        Vue.use(VueTouch);
+
+        var vm = new Vue({
+            el : "#app",
+            data : {
+                status : {
+                    home : true,
+                    goods : false,
+                    order : false,
+                    me : false
+                },
+                trans : 'bounceright'
+            },
+            methods : {
+                change : function( key ) {
+                    for( var k in this.status ) {
+                        if( this.status[k] ) {
+                            this.status[k] = false;
+                        }
+                    }
+
+                    var that = this;
+                    setTimeout(function(){
+                        for( var k in that.status ) {
+                            if( k === key ) {
+                                that.status[k] = true;
+                            }
+                        }
+                    },800);
+                },
+                changeLeft : function( key ) {
+                    this.trans = "bounceright";
+                    this.change(key);
+                },
+                changeRight : function( key ) {
+                    this.trans = "bounceleft";
+                    this.change(key);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

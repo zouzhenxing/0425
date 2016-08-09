@@ -1,0 +1,36 @@
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>用户名</th>
+            <th>密码</th>
+            <th>超级管理员</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+    <% admins.map(function( admin ) {%>
+        <tr>
+            <td>
+                <% if(admin.issuper) { %>
+                    <input type="checkbox" name="ids" value="<%=admin.id %>"/>
+                <% } %>
+            </td>
+            <td><%=admin.name %></td>
+            <td><%=admin.pwd %></td>
+            <td><%=admin.issuper ? '否' : '是' %></td>
+            <td>
+                <% if(admin.issuper) { %>
+                    <a href="#/delAdmin/<%=admin.id%>" class="glyphicon glyphicon-trash"></a>
+                    <a href="#/goAddAdmin/<%=admin.id%>" class="glyphicon glyphicon-edit"></a>
+                <% } %>
+            </td>
+        </tr>
+    <% }) %>
+    </tbody>
+</table>
+
+<div class="btn-group">
+    <a href="javascript:;" id="delAll" type="button" class="btn btn-success"><i class="glyphicon glyphicon-trash"></i></a>
+    <a href="#/goAddAdmin/-1" type="button" class="btn btn-success"><i class="glyphicon glyphicon-plus"></i></a>
+</div>

@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <child @child-msg="onmessage"></child>
+    </div>
+    <script>
+        var child = Vue.extend({
+            data : function(){
+                return {msg:''}
+            },
+            template : "<input type='text' v-model='msg' /><button @click='notify()'>点击</button>",
+            methods : {
+                notify : function(){
+                    console.log("我自己不处理,向外传播事件");
+                    this.$dispatch("child-msg",this.msg);
+                    this.msg = '';
+                }
+            }
+        });
+
+        Vue.component("child",child);
+
+        var vm = new Vue({
+            el : '#app',
+            methods : {
+                'onmessage' : function( msg ) {
+                    alert(msg);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
